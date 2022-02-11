@@ -1,0 +1,50 @@
+{
+  "name": "kurenai",
+  "description": "Media Player",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "ExceptionErrot"
+  },
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "build": {
+    "win": {
+      "icon": "static/icon_256x256.png"
+    }
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3",
+    "file-type": "^14.6.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.1",
+    "@types/node": "12.12.44",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/source-map-support": "^0.5.1",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "electron": "9.0.5",
+    "electron-builder": "^22.7.0",
+    "electron-webpack": "^2.8.2",
+    "electron-webpack-eslint": "^6.0.0",
+    "electron-webpack-ts": "^4.0.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5",
+    "upgrade": "^1.1.0",
+    "webpack": "~4.43.0",
+    "yarn": "^1.22.4"
+  }
+}

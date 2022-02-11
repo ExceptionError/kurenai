@@ -1,0 +1,9 @@
+{
+    "main": {
+        "extraEntries": ["@/preload.ts"]
+    },
+    "renderer": {
+        "webpackConfig": "webpack.renderer.additions.js",
+        "template": "src/index.html"
+    }
+}

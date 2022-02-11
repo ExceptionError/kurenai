@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KURENAI</title>
+    <script>
+function require() {
+  return {
+    globalPaths: {
+      push: () => {},
+    },
+    install: () => {},
+  };
+}
+    </script>
+    <style>
+* {
+  -webkit-user-drag: none;
+  margin: 0;
+  user-select: none;
+}
+*::-webkit-scrollbar {
+    display:none;
+}
+body {
+  font-size: 0;
+  background-image: url("./bg.png"), url("../static/bg.png");
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#title {
+  -webkit-app-region: drag;
+  width: 296px;
+  height: 18px;
+  margin: 2px;
+  background-image: url("./title.png"), url("../static/title.png");
+  background-repeat: no-repeat;
+  display: inline-flex;
+}
+#title #icon {
+  -webkit-app-region: no-drag;
+  margin: 1px;
+  cursor: pointer;
+}
+#title #name {
+  margin: 5px auto 4px 2px;
+}
+#title #close {
+  -webkit-app-region: no-drag;
+  margin: 1px;
+  margin-left: auto;
+  cursor: pointer;
+}
+.grid {
+  display: flex;
+}
+#box {
+  width: 220px;
+  height: 45px;
+  margin: 8px 0 0 10px;
+  background-image: url("./box.png"), url("../static/box.png");
+  background-repeat: no-repeat;
+}
+#box marquee {
+  color: #ff8080;
+  font-size: 12px;
+  margin: 6px 6px 0 6px;
+}
+#box #time {
+  color: #ff8080;
+  font-size: 12px;
+  margin: 6px;
+}
+#util {
+  width: 50px;
+  height: 45px;
+  margin: 8px 0 0 10px;
+  padding-top: 1px;
+}
+#util img {
+  width: 100%;
+  height: 14px;
+  cursor: pointer;
+}
+#seek {
+  width: 220px;
+  margin: 8px 0 0 10px;
+}
+#volume {
+  width: 50px;
+  margin-left: 10px;
+}
+#control {
+  margin: 12px 0 0 10px;
+}
+#control img {
+  cursor: pointer;
+}
+#control-file {
+  margin: 12px 0 0 10px;
+}
+#control-file img {
+  cursor: pointer;
+}
+.input-range[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgb(64, 0, 0);
+  height: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+.input-range[type="range"]:focus {
+  outline: none;
+}
+.input-range[type="range"]:active {
+  outline: none;
+}
+.input-range[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  width: 4px;
+  height: 14px;
+  display: block;
+  background-color: rgb(64, 0, 0);
+}
+    </style>
+  </head>
+  <body>
+    <section id="title">
+      <img id="icon" src="../static/icon.gif" />
+      <img id="name" src="../static/name.gif" />
+      <img id="close" title="Close" src="../static/close.gif" />
+    </section>
+    <section class="grid">
+      <section id="box">
+        <marquee>
+          <span id="info">
+            Hello. KURENAI is Media Player built on Electron.
+          </span>
+        </marquee>
+        <time id="time">000 - 0:00 / 0:00</time>
+      </section>
+      <section id="util">
+        <img id="folder" src="../static/bar.gif" />
+        <img src="../static/bar.gif" />
+        <img src="../static/bar.gif" />
+      </section>
+    </section>
+    <section class="range">
+      <input
+        id="seek"
+        class="input-range"
+        type="range"
+        value="0"
+        step="0.001"
+      />
+      <input
+        id="volume"
+        class="input-range"
+        type="range"
+        value="0"
+        max="1"
+        step="0.001"
+      />
+    </section>
+    <section class="grid">
+      <section id="control">
+        <img id="prev" title="Prev" src="../static/prev.gif" />
+        <img id="play" title="Play" src="../static/play.gif" />
+        <img id="pause" title="Pause" src="../static/pause.gif" />
+        <img id="stop" title="Stop" src="../static/stop.gif" />
+        <img id="next" title="Next" src="../static/next.gif" />
+      </section>
+      <section id="control-file">
+        <img id="file" title="File" src="../static/file.gif" />
+      </section>
+    </section>
+    <audio id="audio" autoplay="true"></audio>
+    <div id="app"></div>
+  </body>
+</html>
